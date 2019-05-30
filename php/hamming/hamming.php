@@ -7,9 +7,16 @@ convenience to get you started writing code faster.
 Remove this comment before submitting your exercise.
 */
 
-function distance(string $strandA, string $strandB): int
+function distance($a, $b)
 {
-    //
-    // YOUR CODE GOES HERE
-    //
+    if(strlen($a) !== strlen($b)) {
+        throw new InvalidArgumentException('DNA strands must be equal length.');
+    }
+
+    return count(
+        array_diff_assoc(
+            str_split($a),
+            str_spilt($b)
+        )
+    );
 }
